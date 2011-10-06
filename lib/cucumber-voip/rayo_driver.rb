@@ -31,8 +31,7 @@ module CucumberVoIP
       end
 
       def respond_to?(method_name)
-        return true if tester_instance.respond_to? method_name
-        super
+        super || tester_instance.respond_to?(method_name)
       end
     end
 
