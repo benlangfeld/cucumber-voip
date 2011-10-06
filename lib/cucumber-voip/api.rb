@@ -1,9 +1,5 @@
 module CucumberVoIP
   module API
-    def set_rayo_options(opts = {})
-      RayoDriver.options = opts
-    end
-
     def start_rayo_driver
       RayoDriver.start
     end
