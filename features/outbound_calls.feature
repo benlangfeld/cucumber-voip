@@ -10,8 +10,8 @@ Feature: Outbound calls
     And the call should be rejected
 
   Scenario: Making a call which is accepted, answered and then hung up
-    Given a caller ID of 'sip:ben@langfeld.me'
-    When I dial 'sip:usera@127.0.0.1'
+    Given my standard caller ID
+    When I dial my app
     Then the call should ring
     And the call should be answered
     And the call should be hung up

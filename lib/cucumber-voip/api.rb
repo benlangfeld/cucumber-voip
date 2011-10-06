@@ -8,6 +8,14 @@ module CucumberVoIP
       RayoDriver.cleanup_calls
     end
 
+    def standard_caller_id
+      RayoDriver.options[:standard_caller_id]
+    end
+
+    def standard_dial_target
+      RayoDriver.options[:standard_dial_target]
+    end
+
     def dial(options = {})
       RayoDriver.dial options
     end
