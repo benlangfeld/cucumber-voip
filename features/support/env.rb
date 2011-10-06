@@ -10,3 +10,4 @@ CucumberVoIP::RayoDriver.options =  {
                                       # :write_timeout      => 30,
                                       # :log_file           => 'log/cucumber_voip.log'
                                     }
+CucumberVoIP::RayoDriver.start
