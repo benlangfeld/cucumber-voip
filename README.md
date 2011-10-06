@@ -21,10 +21,7 @@ Install
 Examples
 --------
 
-```ruby
-  require 'cucumber-voip'
-  FIXME (code sample of usage)
-```
+See the features/ directory
 
 Author
 ------
@@ -36,6 +33,20 @@ Links
 * [Source](https://github.com/benlangfeld/cucumber-voip)
 * [Documentation](http://rdoc.info/github/benlangfeld/cucumber-voip/master/frames)
 * [Bug Tracker](https://github.com/benlangfeld/cucumber-voip/issues)
+
+TODO
+----
+
+There is a huge list of things that need to be done in order for this project to be more useful:
+
+* Internal features should run against a known script for each scenario
+* It should be possible to configure a single URI as a global dial target (referenced as 'When I dial my app')
+* A whole bunch more step definitions need to be added
+* Generators should be provided for in-app and standalone usage
+* A boat-load of documentation is required on the following topics:
+** How to setup cucumber-voip in your application or stand-alone
+** How to write features
+** How to write extra step definitions
 
 Note on Patches/Pull Requests
 -----------------------------
