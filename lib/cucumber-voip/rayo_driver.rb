@@ -2,28 +2,36 @@
   punchblock
   rspec-rayo
   active_support/core_ext/module/delegation
-  singleton
 }.each { |f| require f }
 
 module CucumberVoIP
   class RayoDriver
-    include Singleton
+    @@tester_instance = nil
+    @@target_instance = nil
 
     attr_reader :options
 
     delegate :cleanup_calls, :dial, :to => :@rayo
 
     class << self
+      def tester_instance
+        @@tester_instance ||= new
+      end
+
+      def target_instance
+        @@target_instance ||= new
+      end
+
       def method_missing(method_name, *args, &block)
-        if instance.respond_to? method_name
-          instance.send method_name, *args, &block
+        if tester_instance.respond_to? method_name
+          tester_instance.send method_name, *args, &block
         else
           super
         end
       end
 
       def respond_to?(method_name)
-        return true if instance.respond_to? method_name
+        return true if tester_instance.respond_to? method_name
         super
       end
     end
