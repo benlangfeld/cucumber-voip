@@ -17,3 +17,7 @@ end
 Then /^the call should be hung up$/ do
   @call.next_event.should be_a_valid_hangup_event
 end
+
+Then /^the call should be rejected$/ do
+  @call.next_event.should be_a_valid_reject_event
+end
