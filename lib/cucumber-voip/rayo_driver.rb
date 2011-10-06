@@ -6,9 +6,6 @@
 
 module CucumberVoIP
   class RayoDriver
-    @@tester_instance = nil
-    @@target_instance = nil
-
     attr_reader :options
 
     delegate :cleanup_calls, :dial, :to => :@rayo
@@ -16,10 +13,6 @@ module CucumberVoIP
     class << self
       def tester_instance
         @@tester_instance ||= new
-      end
-
-      def target_instance
-        @@target_instance ||= new
       end
 
       def method_missing(method_name, *args, &block)
