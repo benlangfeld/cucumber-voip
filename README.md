@@ -42,9 +42,9 @@ There is a huge list of things that need to be done in order for this project to
 * A whole bunch more step definitions need to be added
 * Generators should be provided for in-app and standalone usage
 * A boat-load of documentation is required on the following topics:
-** How to setup cucumber-voip in your application or stand-alone
-** How to write features
-** How to write extra step definitions
+  * How to setup cucumber-voip in your application or stand-alone
+  * How to write features
+  * How to write extra step definitions
 
 Note on Patches/Pull Requests
 -----------------------------
