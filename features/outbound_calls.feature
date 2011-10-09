@@ -21,7 +21,7 @@ Feature: Outbound calls
       answer
       hangup
       """
-    And  my standard caller ID
+    And my standard caller ID
     When I dial my app
     Then the call should ring
     And the call should be answered

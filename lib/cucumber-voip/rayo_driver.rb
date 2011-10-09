@@ -2,6 +2,8 @@
   punchblock
   rspec-rayo
   active_support/core_ext/module/delegation
+
+  cucumber-voip/core_ext/punchblock/component/component_node
 }.each { |f| require f }
 
 module CucumberVoIP

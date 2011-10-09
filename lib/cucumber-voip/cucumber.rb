@@ -1,5 +1,4 @@
 %w{
-  core_ext/punchblock/component/component_node
   rayo_driver
   api
   hooks
