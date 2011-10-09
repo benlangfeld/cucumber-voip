@@ -19,5 +19,13 @@ module CucumberVoIP
     def dial(options = {})
       RayoDriver.dial options
     end
+
+    def audio_ssml(url)
+      "<audio src='#{url}' />"
+    end
+
+    def dtmf_ssml(digit)
+      audio_ssml "dtmf:#{digit}"
+    end
   end
 end
