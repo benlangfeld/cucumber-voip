@@ -32,10 +32,10 @@ end
 
 When /^I say '([\w\s]+)'$/ do |phrase|
   component = @call.say(:text => phrase).should have_executed_correctly
-  component.next_event.resource.should be_a_valid_say_event
+  component.next_event.should be_a_valid_say_event
 end
 
 When /^I press '([\d\*\#])'$/ do |digit|
   component = @call.output(:ssml => dtmf_ssml(digit)).should have_executed_correctly
-  # component.next_event.resource.should be_a_valid_say_event
+  component.next_event.should be_a_valid_output_event
 end

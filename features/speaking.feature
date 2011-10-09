@@ -3,13 +3,12 @@ Feature: Speaking
   In order to imitate a human being during testing
   I want to be able to use a TTS engine to speak to my app
 
-  @wip
   Scenario: Saying hello
     Given an app which does:
       """
       accept
       answer
-      sleep 0.2
+      sleep 1
       hangup
       """
     And my standard caller ID
@@ -19,13 +18,12 @@ Feature: Speaking
     When I say 'hello world'
     Then the call should be hung up
 
-  @wip
   Scenario: Playing DTMF
     Given an app which does:
       """
       accept
       answer
-      sleep 0.2
+      sleep 0.5
       hangup
       """
     And my standard caller ID
