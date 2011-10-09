@@ -43,5 +43,5 @@ end
 Then /^I should hear '([\w\s]+)'$/ do |phrase|
   component = @call.input(:grammar => { :value => phrase, :content_type => 'application/grammar+voxeo' }).should have_executed_correctly
 
-  component.next_event.should be_a_valid_successful_input_event.with_utterance(phrase)
+  component.next_event(10).should be_a_valid_successful_input_event.with_utterance(phrase)
 end
