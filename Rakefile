@@ -1,10 +1,5 @@
-begin
-  require 'bones'
-rescue LoadError
-  abort '### Please install the "bones" gem ###'
-end
-
-require 'bundler/gem_tasks'
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
 require 'yard'
 YARD::Rake::YardocTask.new
