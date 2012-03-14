@@ -15,7 +15,7 @@ When /^I dial '([\w\d\s\.\:\@]+)'$/ do |target_address|
 end
 
 Then /^the call should ring$/ do
-  @call.ring_event.should be_a_valid_ringing_event
+  @call.next_event.should be_a_valid_ringing_event
 end
 
 Then /^the call should be answered$/ do
@@ -28,6 +28,10 @@ end
 
 Then /^the call should be rejected$/ do
   @call.next_event.should be_a_valid_reject_event
+end
+
+When /^I hang up$/ do
+  @call.hangup.should have_executed_correctly
 end
 
 When /^I say '([\w\s]+)'$/ do |phrase|

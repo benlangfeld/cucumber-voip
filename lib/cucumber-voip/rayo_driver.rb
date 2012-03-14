@@ -36,8 +36,7 @@ module CucumberVoIP
                     :password       => '1',
                     :host           => '127.0.0.1',
                     :queue_timeout  => 30,
-                    :write_timeout  => 30,
-                    :log_file       => 'log/cucumber_voip.log'
+                    :write_timeout  => 30
                   }
     end
 
@@ -47,18 +46,17 @@ module CucumberVoIP
 
     def start
       raise StandardError, 'You cannot start the Rayo driver more than once!' if @rayo
-      @rayo = RSpecRayo::RayoDriver.new :username         => options[:jid],
-                                        :password         => options[:password],
-                                        :host             => options[:host],
-                                        :port             => options[:port],
-                                        :wire_logger      => logger,
-                                        :transport_logger => logger,
-                                        :log_level        => Logger::DEBUG,
-                                        :queue_timeout    => options[:queue_timeout],
-                                        :write_timeout    => options[:write_timeout]
-      status = @rayo.read_queue @rayo.event_queue
-      raise StandardError, 'Could not connect to Prism XMPP Server. Aborting!' unless status == 'CONNECTED'
-      @rayo.start_event_dispatcher
+      @rayo = RSpecRayo::RayoDriver.new :username       => options[:jid],
+                                        :password       => options[:password],
+                                        :host           => options[:host],
+                                        :port           => options[:port],
+                                        :queue_timeout  => options[:queue_timeout],
+                                        :write_timeout  => options[:write_timeout]
+      begin
+        @rayo.wait_for_connection 10
+      rescue Timeout::Error
+        abort 'Could not connect to Rayo Server. Aborting!'
+      end
     end
 
     private
